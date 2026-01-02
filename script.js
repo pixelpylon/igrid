@@ -47,6 +47,57 @@ function saveToLocalStorage() {
     localStorage.setItem('deletedImages', JSON.stringify(deletedImages));
 }
 
+// Format date from EXIF data
+function formatExifDate(dateString) {
+    if (!dateString) return null;
+    
+    // EXIF date format: "YYYY:MM:DD HH:MM:SS"
+    const parts = dateString.split(' ');
+    if (parts.length !== 2) return null;
+    
+    const dateParts = parts[0].split(':');
+    const timeParts = parts[1].split(':');
+    
+    if (dateParts.length !== 3) return null;
+    
+    const date = new Date(
+        parseInt(dateParts[0]),
+        parseInt(dateParts[1]) - 1,
+        parseInt(dateParts[2]),
+        parseInt(timeParts[0]),
+        parseInt(timeParts[1]),
+        parseInt(timeParts[2])
+    );
+    
+    // Format as "MMM DD, YYYY"
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+// Extract EXIF data from image
+function extractExifDate(img, dateOverlay) {
+    if (typeof EXIF === 'undefined') {
+        dateOverlay.textContent = 'No date';
+        dateOverlay.classList.remove('loading');
+        return;
+    }
+    
+    EXIF.getData(img, function() {
+        const dateTime = EXIF.getTag(this, 'DateTimeOriginal') || 
+                        EXIF.getTag(this, 'DateTime') || 
+                        EXIF.getTag(this, 'DateTimeDigitized');
+        
+        const formattedDate = formatExifDate(dateTime);
+        
+        if (formattedDate) {
+            dateOverlay.textContent = formattedDate;
+        } else {
+            dateOverlay.textContent = 'No date';
+        }
+        dateOverlay.classList.remove('loading');
+    });
+}
+
 // Create a gallery item
 function createGalleryItem(imageName) {
     const item = document.createElement('div');
@@ -58,6 +109,21 @@ function createGalleryItem(imageName) {
     img.src = `img/${imageName}`;
     img.alt = imageName.replace(/\.(jpg|JPG|png)$/, '');
     img.loading = 'lazy';
+    
+    // Date overlay
+    const dateOverlay = document.createElement('div');
+    dateOverlay.className = 'date-overlay loading';
+    dateOverlay.textContent = 'Loading...';
+    
+    // Extract EXIF data when image loads
+    img.addEventListener('load', function() {
+        extractExifDate(this, dateOverlay);
+    });
+    
+    // If image is already cached and loaded
+    if (img.complete) {
+        extractExifDate(img, dateOverlay);
+    }
     
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'delete-btn';
@@ -81,6 +147,7 @@ function createGalleryItem(imageName) {
     item.addEventListener('dragleave', handleDragLeave);
     
     item.appendChild(img);
+    item.appendChild(dateOverlay);
     item.appendChild(deleteBtn);
     
     return item;
