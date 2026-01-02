@@ -98,6 +98,28 @@ function extractExifDate(img, dateOverlay) {
     });
 }
 
+// Move image to top
+function moveImageToTop(imageName) {
+    const index = images.indexOf(imageName);
+    if (index > 0) {
+        images.splice(index, 1);
+        images.unshift(imageName);
+        saveToLocalStorage();
+        loadGallery();
+    }
+}
+
+// Move image to bottom
+function moveImageToBottom(imageName) {
+    const index = images.indexOf(imageName);
+    if (index !== -1 && index < images.length - 1) {
+        images.splice(index, 1);
+        images.push(imageName);
+        saveToLocalStorage();
+        loadGallery();
+    }
+}
+
 // Create a gallery item
 function createGalleryItem(imageName) {
     const item = document.createElement('div');
@@ -125,18 +147,46 @@ function createGalleryItem(imageName) {
         extractExifDate(img, dateOverlay);
     }
     
+    // Action buttons container
+    const actionButtons = document.createElement('div');
+    actionButtons.className = 'action-buttons';
+    
+    // Move to top button
+    const moveTopBtn = document.createElement('button');
+    moveTopBtn.className = 'action-btn move-top-btn';
+    moveTopBtn.innerHTML = '↑';
+    moveTopBtn.title = 'Move to top';
+    moveTopBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        moveImageToTop(imageName);
+    });
+    
+    // Move to bottom button
+    const moveBottomBtn = document.createElement('button');
+    moveBottomBtn.className = 'action-btn move-bottom-btn';
+    moveBottomBtn.innerHTML = '↓';
+    moveBottomBtn.title = 'Move to bottom';
+    moveBottomBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        moveImageToBottom(imageName);
+    });
+    
+    // Delete button
     const deleteBtn = document.createElement('button');
-    deleteBtn.className = 'delete-btn';
+    deleteBtn.className = 'action-btn delete-btn';
     deleteBtn.innerHTML = '×';
     deleteBtn.title = 'Delete image';
-    
-    // Delete functionality
     deleteBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         if (confirm('Delete this image?')) {
             deleteImage(imageName, item);
         }
     });
+    
+    // Add buttons to container
+    actionButtons.appendChild(moveTopBtn);
+    actionButtons.appendChild(moveBottomBtn);
+    actionButtons.appendChild(deleteBtn);
     
     // Drag and drop events
     item.addEventListener('dragstart', handleDragStart);
@@ -148,7 +198,7 @@ function createGalleryItem(imageName) {
     
     item.appendChild(img);
     item.appendChild(dateOverlay);
-    item.appendChild(deleteBtn);
+    item.appendChild(actionButtons);
     
     return item;
 }
