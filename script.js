@@ -1,37 +1,40 @@
-// List of all images in the img folder
+﻿// List of all images in the img folder
 const allImages = [
-    'andruha.jpg', 'aschool.jpg', 'ata1.jpg', 'ata2.JPG', 'baku1.JPG', 'baku2.JPG',
-    'balcony.JPG', 'bk.jpg', 'bkapt2.jpg', 'bkapt3.jpg', 'blocks.JPG', 'blocks2.JPG',
-    'bob.jpg', 'bob1.jpg', 'bob2.jpg', 'bob3.jpg', 'bob5.jpg', 'bob6.jpg',
-    'booklynapartment.JPG', 'brighton1.JPG', 'brighton2.JPG', 'brkapt1.jpg',
-    'bro-ibo.jpg', 'bro-lesha.JPG', 'broadway.JPG', 'bubba.JPG', 'bubba2.JPG',
-    'build2.JPG', 'build3.JPG', 'build5.JPG', 'buildings1.JPG', 'burger.JPG',
-    'canada1.jpg', 'carplate1.jpg', 'centr1.JPG', 'chris.JPG', 'crew.jpg', 'crew.png',
-    'dada.jpg', 'daniela.jpg', 'dashuta.jpg', 'dedaena2015.jpg', 'dimon.JPG',
-    'dimon2.JPG', 'doc1.jpg', 'edik2.jpg', 'egorik.jpg', 'emilka.jpg',
-    'empirestate.jpg', 'estunina.jpg', 'fallout.jpg', 'fallout4.jpg',
-    'family-niagara.jpg', 'family.jpg', 'food.jpg', 'gatsko.jpg', 'girls.JPG',
-    'graduated.JPG', 'graduation2.JPG', 'grandparents.JPG', 'gransk2006.jpg',
-    'gudauri.jpg', 'gudauri2015.jpg', 'gudauri22.jpg', 'hamster.JPG', 'horse1.JPG',
-    'jenek1.JPG', 'kikodze1.jpg', 'kostya1.jpg', 'land.jpg', 'land2.JPG',
-    'laundry1.JPG', 'leila.JPG', 'lelka2.JPG', 'lift.jpg', 'liza.JPG', 'liza1.JPG',
-    'liza2.JPG', 'liza3.JPG', 'london2014.jpg', 'mama.JPG', 'marneuli.jpg',
-    'minsk.JPG', 'minsk11.jpg', 'minsk111.jpg', 'minsk16-2.jpg', 'minsk16.jpg',
-    'naughton1.jpg', 'naughton2.jpg', 'niagara.jpg', 'niagara2.jpg', 'nyc.JPG',
-    'nyc12.JPG', 'nyc2006.JPG', 'nyc2022.jpg', 'nyccy.JPG', 'nycha.JPG', 'nyu.JPG',
-    'nyu1.JPG', 'nyu2.JPG', 'nyu2012.jpg', 'nyu6.jpg', 'nyurker.jpg', 'ocean2.JPG',
-    'oceanave.JPG', 'paris2022.jpg', 'pimpmyride.jpg', 'plate2.jpg', 'plate3.jpg',
-    'plates10.jpg', 'plates4.jpg', 'plates7.jpg', 'plates8.jpg', 'porter.jpg',
-    'prague2012.jpg', 'profile.JPG', 'pudge.JPG', 'raion.jpg', 'ratka4.jpg',
-    'rocknroll.JPG', 'rodeo.png', 'saettl.jpg', 'sandy.JPG', 'sandy1.JPG',
-    'sandy2.JPG', 'sandy2012.JPG', 'sea1.JPG', 'shitter.jpg', 'si1.jpg', 'snacks.JPG',
-    'soho1.JPG', 'soho2.JPG', 'soho3.JPG', 'soho4.JPG', 'soho5.JPG', 'sohoap1.JPG',
-    'staten.JPG', 'staten1.JPG', 'staten2.jpg', 'staten3.JPG', 'statenzo.jpg',
-    'statenzoo1.jpg', 'sundara1.JPG', 'svetka.jpg', 'svetka2.jpg', 'svetka3.JPG',
-    'svetka5.JPG', 'timesq.JPG', 'timesquare2006.jpg', 'toronto.jpg', 'toronto1.jpg',
-    'toronto2.jpg', 'toronto3.jpg', 'toronto4.jpg', 'toronto6.jpg', 'toronto7.jpg',
-    'toronto9.jpg', 'torontoapt.jpg', 'tubik.jpg', 'tubik2.JPG', 'tubik3.JPG',
-    'zavorina.jpg', 'zhorik.jpg', 'zhorik2.jpg'
+    '2025-12-06_162220.jpg', '2025-09-29_183315.jpg', '2025-09-29_183315.jpg', '2025-09-29_183315.jpg', '2025-09-28_162430.jpg', '2025-09-20_141730.jpg', 
+    , '2025-08-10_200125.jpg', '2025-05-24_185642.jpg', '2025-05-04_164210.jpg', '2024-06-09_095331.jpg', '2024-06-09_095331.jpg', '2022-10-10_010818.jpg', 
+    , '2022-09-16_140749.jpg', '2022-03-15_151759.jpg', '2020-03-29_130125.jpg', '2019-09-15_104124.jpg', '2019-09-09_132026.jpg', '2019-08-24_151245.jpg', 
+    , '2019-03-24_011241.jpg', '2018-11-04_141341.jpg', '2018-10-24_095008.jpg', '2018-09-25_181335.jpg', '2018-09-16_144751.jpg', '2018-09-16_141614.jpg', 
+    , '2018-09-08_151806.jpg', '2018-07-27_121120.jpg', '2018-03-03_114742.jpg', '2018-02-06_205335.jpg', '2017-07-29_172703.jpg', '2017-05-04_152657.jpg', 
+    , '2016-09-24_221638.jpg', '2016-09-24_221630.jpg', '2016-09-19_085805.jpg', '2016-09-09_233830.jpg', '2016-09-09_233830.jpg', '2016-08-20_212804.jpg', 
+    , '2016-08-20_152935.jpg', '2016-08-17_193741.jpg', '2016-08-11_124500.jpg', '2016-07-25_194336.jpg', '2016-07-25_194336.jpg', '2016-04-20_180859.jpg', 
+    , '2016-04-07_112017.jpg', '2016-02-16_144729.jpg', '2016-01-05_141433.jpg', '2016-01-05_141426.jpg', '2015-12-29_085901.jpg', '2015-12-27_172408.jpg', 
+    , '2015-12-27_161021.jpg', '2015-12-04_013130.jpg', '2015-11-16_133725.jpg', '2015-09-07_163206.jpg', '2015-09-05_160106.jpg', '2015-08-19_144609.jpg', 
+    , '2015-08-19_144453.jpg', '2015-08-07_151951.jpg', '2015-06-26_131110.jpg', '2015-06-26_131049.jpg', '2015-06-26_131049.jpg', '2015-06-12_181648.jpg', 
+    , '2015-06-10_193819.jpg', '2015-06-05_091151.jpg', '2015-06-05_091036.jpg', '2015-06-01_114758.jpg', '2015-06-01_114758.jpg', '2015-05-18_220308.jpg', 
+    , '2015-05-18_215024.jpg', '2015-05-18_214421.jpg', '2015-05-18_174535.jpg', '2015-04-25_125840.jpg', '2015-04-25_125833.jpg', '2015-01-11_124034.jpg', 
+    , '2015-01-09_152111.jpg', '2015-01-09_152111.jpg', '2015-01-07_001442.jpg', '2014-12-29_122051.jpg', '2014-12-29_122051.jpg', '2014-10-12_022526.jpg', 
+    , '2014-09-07_221304.jpg', '2014-08-15_000046.jpg', '2014-08-15_000046.jpg', '2014-08-15_000046.jpg', '2014-08-15_000046.jpg', '2014-08-15_000046.jpg', 
+    , '2014-08-15_000046.jpg', '2014-08-15_000046.jpg', '2014-08-15_000046.jpg', '2014-08-15_000046.jpg', '2014-07-31_170826.jpg', '2014-01-14_183925.jpg', 
+    , '2013-08-17_043922.jpg', '2013-08-17_043922.jpg', '2013-02-17_134142.jpg', '2013-02-17_134124.jpg', '2013-02-15_185052.jpg', '2013-02-15_185038.jpg', 
+    , '2013-02-15_184643.jpg', '2013-02-15_181427.jpg', '2013-02-15_174650.jpg', '2013-02-15_174650.jpg', '2013-02-15_174452.jpg', '2013-02-15_150129.jpg', 
+    , '2013-02-15_150129.jpg', '2013-02-08_165658.jpg', '2012-11-04_015557.jpg', '2012-11-04_015557.jpg', '2012-11-04_015557.jpg', '2012-10-31_035652.jpg', 
+    , '2012-10-30_114904.jpg', '2012-10-30_112635.jpg', '2012-10-30_112439.jpg', '2012-10-30_112439.jpg', '2012-10-27_190849.jpg', '2012-10-17_012925.jpg', 
+    , '2012-10-12_020731.jpg', '2012-10-04_005419.jpg', '2012-10-04_001504.jpg', '2012-10-04_001504.jpg', '2012-10-04_001504.jpg', '2012-10-04_001504.jpg', 
+    , '2012-10-04_001504.jpg', '2012-10-04_001504.jpg', '2012-09-11_201438.jpg', '2012-09-11_201410.jpg', '2012-09-11_200852.jpg', '2012-09-11_200843.jpg', 
+    , '2012-09-11_200757.jpg', '2012-09-11_200757.jpg', '2012-09-11_200757.jpg', '2012-09-11_200757.jpg', '2012-09-11_200757.jpg', '2012-09-11_190801.jpg', 
+    , '2012-09-11_034628.jpg', '2012-08-12_201055.jpg', '2012-08-06_202330.jpg', '2012-08-06_202330.jpg', '2012-08-06_202330.jpg', '2012-07-27_154640.jpg', 
+    , '2012-07-27_154631.jpg', '2012-02-19_135724.jpg', '2012-02-19_135722.jpg', '2011-07-25_222113.jpg', '2011-07-22_205208.jpg', '2011-07-21_163823.jpg', 
+    , '2011-07-21_163823.jpg', '2011-07-21_163823.jpg', '2011-07-18_014819.jpg', '2011-07-18_014819.jpg', '2011-07-12_005913.jpg', '2011-07-11_021613.jpg', 
+    , '2011-07-03_015647.jpg', '2011-06-21_190414.jpg', '2011-06-18_172344.jpg', '2011-06-11_235038.jpg', '2011-06-01_183237.jpg', '2011-06-01_183228.jpg', 
+    , '2011-05-30_164517.jpg', '2011-05-30_164517.jpg', '2011-05-30_164517.jpg', '2011-05-28_165503.jpg', '2011-05-28_165434.jpg', '2011-05-11_221524.jpg', 
+    , '2011-05-07_144020.jpg', '2011-05-02_074923.jpg', '2011-05-02_074852.jpg', '2011-05-02_074852.jpg', '2011-05-02_074852.jpg', '2011-04-09_013257.jpg', 
+    , '2011-01-16_135035.jpg', '2011-01-16_115020.jpg', '2010-12-27_192720.jpg', '2010-12-06_210756.jpg', '2010-09-26_083608.jpg', '2010-09-20_043313.jpg', 
+    , '2010-09-20_043301.jpg', '2010-09-20_043247.jpg', '2010-09-20_043247.jpg', '2010-09-20_043247.jpg', '2008-03-28_110007.jpg', '2008-03-26_120244.jpg', 
+    , '2008-03-26_120244.jpg', '2008-03-26_120244.jpg', '2008-03-02_103333.jpg', '2008-03-02_103333.jpg', '2008-02-26_135015.jpg', '2008-02-26_134534.jpg', 
+    , '2007-10-04_004933.jpg', '2007-10-02_075612.jpg', '2007-10-02_005722.jpg', '2007-06-08_152458.jpg', '2006-08-24_150030.jpg', '2006-08-24_145014.jpg', 
+    , '2006-07-25_213136.jpg', '2006-07-25_033302.jpg', '2006-06-30_172736.jpg', '2006-06-30_172736.jpg', '2006-06-30_172736.jpg', '2006-06-16_152329.jpg', 
+    , '2006-06-16_152329.jpg', '2006-06-16_152329.jpg', '2006-06-16_152329.jpg', '2006-01-01_063111.jpg', '2005-12-03_122946.jpg', '2005-10-10_100413.jpg', 
+    , '2000-02-05_072009.jpg', '2000-02-05_072009.jpg', '2000-02-05_071952.jpg'
 ];
 
 // Load images and deleted images from localStorage
@@ -154,7 +157,7 @@ function createGalleryItem(imageName) {
     // Move to top button
     const moveTopBtn = document.createElement('button');
     moveTopBtn.className = 'action-btn move-top-btn';
-    moveTopBtn.innerHTML = '↑';
+    moveTopBtn.innerHTML = 'â†‘';
     moveTopBtn.title = 'Move to top';
     moveTopBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -164,7 +167,7 @@ function createGalleryItem(imageName) {
     // Move to bottom button
     const moveBottomBtn = document.createElement('button');
     moveBottomBtn.className = 'action-btn move-bottom-btn';
-    moveBottomBtn.innerHTML = '↓';
+    moveBottomBtn.innerHTML = 'â†“';
     moveBottomBtn.title = 'Move to bottom';
     moveBottomBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -174,7 +177,7 @@ function createGalleryItem(imageName) {
     // Delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'action-btn delete-btn';
-    deleteBtn.innerHTML = '×';
+    deleteBtn.innerHTML = 'Ã—';
     deleteBtn.title = 'Delete image';
     deleteBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -308,4 +311,5 @@ document.addEventListener('keydown', (e) => {
         resetGallery();
     }
 });
+
 
