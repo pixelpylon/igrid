@@ -118,12 +118,65 @@ function extractExifDate(img, dateOverlay) {
         
         if (formattedDate) {
             dateOverlay.textContent = formattedDate;
+            // Store date for lightbox
+            dateOverlay.dataset.fullDate = formattedDate;
         } else {
             dateOverlay.textContent = 'No date';
         }
         dateOverlay.classList.remove('loading');
     });
 }
+
+// Lightbox functionality
+function openLightbox(imageSrc, dateText) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxDate = document.getElementById('lightboxDate');
+    
+    lightboxImage.src = imageSrc;
+    lightboxDate.textContent = dateText || 'No date';
+    lightbox.classList.add('active');
+    
+    // Prevent scrolling when lightbox is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    
+    // Re-enable scrolling
+    document.body.style.overflow = '';
+}
+
+// Close lightbox when clicking outside image or on close button
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxImage = document.getElementById('lightboxImage');
+    
+    // Close button
+    lightboxClose.addEventListener('click', closeLightbox);
+    
+    // Click outside image
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Prevent closing when clicking the image itself
+    lightboxImage.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+});
 
 // Move image to top
 function moveImageToTop(imageName) {
@@ -222,6 +275,21 @@ function createGalleryItem(imageName) {
     item.addEventListener('drop', handleDrop);
     item.addEventListener('dragenter', handleDragEnter);
     item.addEventListener('dragleave', handleDragLeave);
+    
+    // Click to open lightbox (but not when dragging or clicking action buttons)
+    let isDragging = false;
+    item.addEventListener('mousedown', () => {
+        isDragging = false;
+    });
+    item.addEventListener('mousemove', () => {
+        isDragging = true;
+    });
+    item.addEventListener('mouseup', (e) => {
+        if (!isDragging && !e.target.closest('.action-btn')) {
+            openLightbox(img.src, dateOverlay.textContent);
+        }
+        isDragging = false;
+    });
     
     item.appendChild(img);
     item.appendChild(dateOverlay);
