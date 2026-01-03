@@ -231,7 +231,7 @@ function createGalleryItem(imageName) {
     // Move to top button
     const moveTopBtn = document.createElement('button');
     moveTopBtn.className = 'action-btn move-top-btn';
-    moveTopBtn.innerHTML = 'â†‘';
+    moveTopBtn.innerHTML = '&#8593;'; // Up arrow
     moveTopBtn.title = 'Move to top';
     moveTopBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -241,7 +241,7 @@ function createGalleryItem(imageName) {
     // Move to bottom button
     const moveBottomBtn = document.createElement('button');
     moveBottomBtn.className = 'action-btn move-bottom-btn';
-    moveBottomBtn.innerHTML = 'â†“';
+    moveBottomBtn.innerHTML = '&#8595;'; // Down arrow
     moveBottomBtn.title = 'Move to bottom';
     moveBottomBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -251,7 +251,7 @@ function createGalleryItem(imageName) {
     // Delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'action-btn delete-btn';
-    deleteBtn.innerHTML = 'Ã—';
+    deleteBtn.innerHTML = '&#215;'; // Multiplication sign (×)
     deleteBtn.title = 'Delete image';
     deleteBtn.addEventListener('click', (e) => {
         e.stopPropagation();
