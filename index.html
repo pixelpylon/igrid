@@ -13,7 +13,12 @@
         <header>
             <h1>Photo Gallery</h1>
             <p class="photo-count" id="photoCount">Loading...</p>
-            <button class="reset-btn" onclick="resetGallery()">Reset Gallery</button>
+            <div class="header-buttons">
+                <button class="header-btn" onclick="exportGallerySettings()">Export Settings</button>
+                <button class="header-btn" onclick="document.getElementById('importFile').click()">Import Settings</button>
+                <button class="header-btn reset-btn" onclick="resetGallery()">Reset Gallery</button>
+                <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importGallerySettings(event)">
+            </div>
         </header>
         <div class="gallery-grid" id="gallery">
             <!-- Images will be loaded here by JavaScript -->

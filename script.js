@@ -1,71 +1,68 @@
-﻿// List of all images in the img folder
-const allImages = [
-    '2025-12-06_162220.jpg', '2025-11.JPG', '2025-10.JPG', '2025-09-28_162430.jpg',
-    '2025-09-28.JPG', '2025-09-20_141730.jpg', '2025-08-10_200125.jpg', '2025-08.JPG',
-    '2025-05-24_185642.jpg', '2025-05-04_164210.jpg', '2025-05.JPG', '2025-04.JPG',
-    '20250-05-09.JPG', '2025.JPG', '2024-12.JPG', '2024-10.JPG',
-    '2024-06-09_095331.jpg', '2024.JPG', '2023-12.JPG', '2022-10-10_010818.jpg',
-    '2022-09-16_140749.jpg', '2022-09-01.jpg', '2022-09.jpg', '2022-03-15_151759.jpg',
-    '2022-01-01.jpg', '2022-01.jpg', '2020-03-29_130125.jpg', '2019-1.jpg',
-    '2019-09-15_104124.jpg', '2019-09-09_132026.jpg', '2019-08-24_151245.jpg', '2019-03-24_011241.jpg',
-    '2019.jpg', '2018-11-04_141341.jpg', '2018-10-24_095008.jpg', '2018-09-25_181335.jpg',
-    '2018-09-16_144751.jpg', '2018-09-16_141614.jpg', '2018-09-08_151806.jpg', '2018-07-27_121120.jpg',
-    '2018-03-03_114742.jpg', '2018-02-06_205335.jpg', '2018.jpg', '2017-07-29_172703.jpg',
-    '2017-06-16_152329.jpg', '2017-05-04_152657.jpg', '2016-09-24_221638.jpg', '2016-09-24_221630.jpg',
-    '2016-09-19_085805.jpg', '2016-09-09_233830.jpg', '2016-08-20_212804.jpg', '2016-08-20_183315.jpg',
-    '2016-08-20_152935.jpg', '2016-08-17_193741.jpg', '2016-08-11_124500.jpg', '2016-07-25_194336.jpg',
-    '2016-05.jpg', '2016-04-20_180859.jpg', '2016-04-07_112017.jpg', '2016-02-16_144729.jpg',
-    '2016-01-05_141433.jpg', '2016-01-05_141426.jpg', '2015-12-29_085901.jpg', '2015-12-27_172408.jpg',
-    '2015-12-27_161021.jpg', '2015-12-04_013130.jpg', '2015-11-16_133725.jpg', '2015-08-19_144609.jpg',
-    '2015-08-19_144453.jpg', '2015-08-07_151951.jpg', '2015-06-12_181648.jpg', '2015-06-10_193819.jpg',
-    '2015-06-05_091151.jpg', '2015-06-05_091036.jpg', '2015-05-18_220308.jpg', '2015-05-18_215024.jpg',
-    '2015-05-18_214421.jpg', '2015-01-11_124034.jpg', '2015.jpg', '2014-10-12_022526.jpg',
-    '2014-09-07_221304.jpg', '2014-08-15_000046.jpg', '2014-07.JPG', '2014.JPG',
-    '2013-02-17_134142.jpg', '2013-02-17_134124.jpg', '2013-02-15_185052.jpg', '2013-02-15_185038.jpg',
-    '2013-02-15_184643.jpg', '2013-02-15_181427.jpg', '2013-02-15_174650.jpg', '2013-02-15_174452.jpg',
-    '2013-02-15_150129.jpg', '2013-02-08_165658.jpg', '2012-11-04_015557.jpg', '2012-10-31_035652.jpg',
-    '2012-10-30_114904.jpg', '2012-10-30_112635.jpg', '2012-10-04_005419.jpg', '2012-10.JPG',
-    '2012-08-12_201055.jpg', '2012-08-06_202330.jpg', '2012-07-27_154640.jpg', '2012-07.JPG',
-    '2011-08.JPG', '2011-07-25_222113.jpg', '2011-07-12_005913.jpg', '2011-07-11_021613.jpg',
-    '2011-06-11_235038.jpg', '2011-06-01.JPG', '2011-06.JPG', '2011-05-30_164517.jpg',
-    '2011-05-28_165503.jpg', '2011-05-28_165434.jpg', '2011-05-11_221524.jpg', '2011-05-02_074923.jpg',
-    '2011-05-02_074852.jpg', '2011-01.jpg', '2011.jpg', '2010-12-27_192720.jpg',
-    '2010-12-06_210756.jpg', '2010-1.jpg', '2010-09-20_043247.jpg', '2010-09.JPG',
-    '2010-02.jpg', '2009-01.jpg', '2008-03-28_110007.jpg', '2008-03-26_120244.jpg',
-    '2008-03-02_103333.jpg', '2008-02-26_135015.jpg', '2008-02-26_134534.jpg', '2008.JPG',
-    '2007-12-29_122051.jpg', '2007-10-04_004933.jpg', '2007-10-02_075612.jpg', '2007-10-02_005722.jpg',
-    '2007-06-08_152458.jpg', '2007-01.jpg', '2007.jpg', '2006-09.jpg',
-    '2006-08-24_150030.jpg', '2006-08-24_145014.jpg', '2006-08.jpg', '2006-07-25_213136.jpg',
-    '2006-07-25_033302.jpg', '2006-06-30_172736.jpg', '2006-06-11_200757.jpg', '2006-05-19.JPG',
-    '2006-05-17.JPG', '2006-05-16.JPG', '2006-05-15-6.JPG', '2006-05-15-4.JPG',
-    '2006-05-15-3.jpg', '2006-05-15-2.JPG', '2006-05-15-1.JPG', '2006-05-15.JPG',
-    '2006-05.JPG', '2006.JPG', '2005-12-03_122946.jpg', '2005-10-10_100413.jpg',
-    '2005-08-17_043922.jpg', '2005-05-01.jpeg', '2005-01.png', '2004-10-30_112439.jpg',
-    '2003-08.JPG', '2000-02-05_072009.jpg', '1992-07-21_163823.jpg'
-];
+﻿// Gallery version - increment this when allImages changes
+const GALLERY_VERSION = 7;
 
-// Gallery version - increment this when allImages changes
-const GALLERY_VERSION = 6;
+// List of all images - will be loaded from images.json
+let allImages = [];
 
-// Load images and deleted images from localStorage
-let storedVersion = parseInt(localStorage.getItem('galleryVersion')) || 1;
-let images, deletedImages;
-
-// If version changed, reset to default (after rename)
-if (storedVersion !== GALLERY_VERSION) {
-    console.log('Gallery updated, resetting to new image list...');
-    images = [...allImages];
-    deletedImages = [];
-    localStorage.setItem('galleryVersion', GALLERY_VERSION);
-    localStorage.setItem('galleryImages', JSON.stringify(images));
-    localStorage.setItem('deletedImages', JSON.stringify(deletedImages));
-} else {
-    images = JSON.parse(localStorage.getItem('galleryImages')) || [...allImages];
-    deletedImages = JSON.parse(localStorage.getItem('deletedImages')) || [];
+// Load image list from JSON file
+async function loadImageList() {
+    try {
+        const response = await fetch('images.json');
+        if (!response.ok) {
+            throw new Error('Failed to load images.json');
+        }
+        allImages = await response.json();
+        console.log(`Loaded ${allImages.length} images from images.json`);
+        return allImages;
+    } catch (error) {
+        console.error('Error loading images.json:', error);
+        alert('Error loading image list. Please make sure images.json exists.');
+        return [];
+    }
 }
 
-// Filter out deleted images
-images = images.filter(img => !deletedImages.includes(img));
+// Initialize gallery
+async function initGallery() {
+    // Load image list from JSON
+    await loadImageList();
+    
+    if (allImages.length === 0) {
+        console.error('No images loaded');
+        return;
+    }
+    
+    // Initialize images and deletedImages arrays
+    initializeGalleryData();
+    
+    // Load the gallery
+    loadGallery();
+}
+
+// Load images and deleted images from localStorage
+function initializeGalleryData() {
+    let storedVersion = parseInt(localStorage.getItem('galleryVersion')) || 1;
+    let images, deletedImages;
+
+    // If version changed, reset to default
+    if (storedVersion !== GALLERY_VERSION) {
+        console.log('Gallery updated, resetting to new image list...');
+        images = [...allImages];
+        deletedImages = [];
+        localStorage.setItem('galleryVersion', GALLERY_VERSION);
+        localStorage.setItem('galleryImages', JSON.stringify(images));
+        localStorage.setItem('deletedImages', JSON.stringify(deletedImages));
+    } else {
+        images = JSON.parse(localStorage.getItem('galleryImages')) || [...allImages];
+        deletedImages = JSON.parse(localStorage.getItem('deletedImages')) || [];
+    }
+
+    // Filter out deleted images
+    images = images.filter(img => !deletedImages.includes(img));
+    
+    // Set global variables
+    window.images = images;
+    window.deletedImages = deletedImages;
+}
 
 // Save to localStorage
 function saveToLocalStorage() {
@@ -404,8 +401,85 @@ function resetGallery() {
     }
 }
 
+// Export gallery settings to JSON
+function exportGallerySettings() {
+    const settings = {
+        version: GALLERY_VERSION,
+        exportDate: new Date().toISOString(),
+        galleryImages: images,
+        deletedImages: deletedImages,
+        totalImages: allImages.length,
+        visibleImages: images.length
+    };
+    
+    const dataStr = JSON.stringify(settings, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(dataBlob);
+    
+    const dateStr = new Date().toISOString().split('T')[0];
+    link.download = `gallery-settings-${dateStr}.json`;
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    alert(`Settings exported successfully!\n\nVisible photos: ${images.length}\nDeleted photos: ${deletedImages.length}`);
+}
+
+// Import gallery settings from JSON
+function importGallerySettings(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const settings = JSON.parse(e.target.result);
+            
+            // Validate the settings
+            if (!settings.galleryImages || !Array.isArray(settings.galleryImages)) {
+                throw new Error('Invalid settings file format');
+            }
+            
+            // Confirm import
+            const message = `Import settings from ${new Date(settings.exportDate).toLocaleDateString()}?\n\n` +
+                          `This will set:\n` +
+                          `- ${settings.visibleImages} visible photos\n` +
+                          `- ${settings.deletedImages?.length || 0} deleted photos\n\n` +
+                          `Current settings will be overwritten.`;
+            
+            if (!confirm(message)) {
+                return;
+            }
+            
+            // Apply settings
+            images = settings.galleryImages;
+            deletedImages = settings.deletedImages || [];
+            
+            // Save to localStorage
+            saveToLocalStorage();
+            
+            // Reload gallery
+            loadGallery();
+            
+            alert('Settings imported successfully!');
+            
+        } catch (error) {
+            alert(`Error importing settings: ${error.message}\n\nPlease make sure you're using a valid gallery settings file.`);
+            console.error('Import error:', error);
+        }
+    };
+    
+    reader.readAsText(file);
+    
+    // Reset file input
+    event.target.value = '';
+}
+
 // Load gallery when DOM is ready
-document.addEventListener('DOMContentLoaded', loadGallery);
+document.addEventListener('DOMContentLoaded', initGallery);
 
 // Optional: Add keyboard shortcut for reset (Ctrl+Shift+R)
 document.addEventListener('keydown', (e) => {
